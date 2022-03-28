@@ -27,6 +27,10 @@
             <!-- optional 依赖是否传递，设置为true时表示依赖不传递 -->
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
     </dependencies>
 
     <!-- Package as an executable jar -->
