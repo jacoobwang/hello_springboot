@@ -1,5 +1,6 @@
 package com.walker.web;
 
+import com.walker.bean.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -41,6 +42,14 @@ public class HelloController {
             log.error(e.getMessage());
         }
         return "Hello";
+    }
+
+    @RequestMapping("/user")
+    public User getUser() {
+        User user = new User();
+        user.setUsername("jacook");
+        user.setAge(18);
+        return user;
     }
 
 }
