@@ -3,6 +3,9 @@ package com.walker.web;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.util.Map;
 
 @Slf4j
 @RestController
@@ -21,6 +24,23 @@ public class HelloController {
 
         log.error("测试{}，日志级别{}，输出{}", "demo1", "error", "error level log");
         return "Hello Spring Boot";
+    }
+
+    @RequestMapping("/map")
+    public String Map() {
+        try {
+            String carJson = "{ \"brand\" : \"Mercedes\", \"doors\" : 5 }";
+            ObjectMapper objectMapper = new ObjectMapper();
+            Map<String, Object> bodyMap = objectMapper.readValue(carJson, Map.class);
+
+            log.info("测试 brand {}", bodyMap.get("brand"));
+            log.info("bodyMap {}", bodyMap);
+
+            return bodyMap.toString();
+        } catch (Exception e) {
+            log.error(e.getMessage());
+        }
+        return "Hello";
     }
 
 }
