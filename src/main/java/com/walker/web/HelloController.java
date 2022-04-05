@@ -1,5 +1,6 @@
 package com.walker.web;
 
+import com.walker.bean.Cat;
 import com.walker.bean.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,7 +50,18 @@ public class HelloController {
         User user = new User();
         user.setUsername("jacook");
         user.setAge(18);
+
         return user;
+    }
+
+    @RequestMapping("/cat")
+    public Cat getCat() {
+        Cat cat = new Cat();
+        cat.setAge(111);
+        cat.setName("蓝猫");
+
+        System.out.println(cat);
+        return cat;
     }
 
 }
